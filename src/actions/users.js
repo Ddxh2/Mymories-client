@@ -1,9 +1,7 @@
 import * as api from "../api";
 import NodeRSA from "node-rsa";
 
-import { ACTION_TYPES } from "../constants/actionTypes";
-
-const ERROR_TYPES = { PASSWORD: "PASSWORD", USERNAME: "USERNAME" };
+import { ACTION_TYPES, ERROR_TYPES } from "../constants/";
 
 export const logIn = (user) => async (dispatch) => {
   const key = new NodeRSA(process.env.REACT_APP_PUBLIC_KEY);
@@ -39,6 +37,10 @@ export const createUser = (user) => async (dispatch) => {
     });
     dispatch({ type: ACTION_TYPES.CREATE_USER, payload: data });
   } catch (error) {
+    if (!!error.response && error.response.status === 403) {
+      const payload = { success: false, type: ERROR_TYPES.CREATE_USER };
+      dispatch({ payload, type: ACTION_TYPES.CREATE_USER });
+    }
     console.log(error);
   }
 };
