@@ -4,36 +4,13 @@
   align-items: center !important;
 }
 
-.home__appBar {
-  border-radius: 15px;
-  margin: 30px 0;
-  display: flex;
-  flex-direction: row !important;
-  justify-content: center;
-  align-items: center;
-  width: 70% !important;
-  z-index: 0 !important;
-}
-.home__heading {
-  color: rgba(0, 183, 255, 1);
-}
-.home__image {
-  margin-left: 15px;
-  height: 60px;
-  width: auto;
-}
-
-@media only screen and (max-width: 790px) {
+@media only screen and (max-width: 830px) {
   .home__mainContainer {
     display: flex;
     flex-direction: column-reverse;
   }
 
-  .home__appBar {
-    width: 100% !important;
-  }
-
-  .MuiTypography-h2 {
-    font-size: 2.75rem !important;
+  .Mui-grid-sm-7 .Mui-grid-sm-4 {
+    max-width: auto !important;
   }
 }
