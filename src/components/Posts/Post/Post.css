@@ -1,0 +1,77 @@
+.post__modal__image {
+  max-width: 90vw;
+  max-height: 90vh;
+  margin: auto;
+  object-fit: contain;
+  cursor: pointer;
+}
+
+.post__media {
+  cursor: pointer;
+  height: 0;
+  padding-top: 56.25%;
+  background-color: rgba(0, 0, 0, 0.3);
+  background-blend-mode: darken;
+}
+.post__border {
+  border: solid;
+}
+.post__fullHeightCard {
+  height: 100%;
+}
+.post__card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  border-radius: 15px !important;
+  height: 100%;
+  position: relative;
+}
+.post__overlay {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  color: white;
+}
+.post__overlay2 {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  color: white;
+}
+
+.post__overlay3 {
+  position: absolute;
+  top: 48px;
+  right: 20px;
+  color: white;
+}
+
+.hidden {
+  display: none;
+}
+
+.shown {
+  display: default;
+}
+
+.post__grid {
+  display: flex;
+}
+.post__details {
+  display: flex;
+  justify-content: space-between;
+  margin: 20px;
+}
+.post__title {
+  padding: 0 16px;
+}
+.post__cardActions {
+  padding: 0 16px 8px 16px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.post__cardActions__buttonLabel {
+  margin: auto 0 auto 0;
+}

@@ -1,0 +1,95 @@
+.landingPage {
+  position: absolute;
+  top: 20%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: rgba(218, 218, 218, 0.7);
+  width: 45%;
+  height: 45%;
+  margin: auto;
+  border-radius: 20px;
+  box-shadow: 0 0 20px 5px gray;
+}
+
+.landingPage__inputRows {
+  margin: 10px;
+  max-width: 90%;
+}
+
+.landingPage__inputRow__cell {
+  padding: 10px;
+  font-weight: bold;
+  font-size: 1.1rem;
+  color: #666666;
+}
+
+.landingPage__inputRow__cell > label,
+.landingPage__inputRow__cell > input {
+  font-size: inherit;
+  font-weight: inherit;
+  color: inherit;
+}
+
+.landingPage__inputRow__cell > input {
+  padding: 5px 5px 5px 10px;
+  width: 100%;
+  border: none;
+  border-radius: 10px;
+}
+
+.landingPage__buttonWrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 30px;
+  width: 50%;
+}
+
+.landingPage__buttonWrapper > button {
+  cursor: pointer;
+  border: none;
+  border-radius: 10px;
+  padding: 10px 20px;
+  font-size: 1.1rem;
+  font-weight: bolder;
+}
+
+.landingPage__buttonWrapper > .primary {
+  background: #007fff;
+  color: #dadada;
+  box-shadow: 0px 0px 10px 1px #007fff;
+}
+
+.landingPage__buttonWrapper > .secondary {
+  background: #8a9a5b;
+  color: white;
+  box-shadow: 0px 0px 10px 1px #8a9a5b;
+}
+
+@media only screen and (max-width: 600px) {
+  .landingPage {
+    width: 80%;
+  }
+
+  .landingPage {
+    max-height: 80%;
+  }
+
+  .landingPage__inputRow__cell {
+    font-size: 1rem;
+  }
+
+  .landingPage__inputRow__cell > input {
+    width: 80%;
+  }
+
+  .landingPage__buttonWrapper {
+    width: 60%;
+  }
+
+  .landingPage__buttonWrapper > button {
+    padding: 5px 10px;
+  }
+}

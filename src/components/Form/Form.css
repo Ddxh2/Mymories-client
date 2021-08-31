@@ -1,0 +1,30 @@
+.MuiTextField-root {
+  margin: 8px !important;
+}
+
+.MuiInputLabel-outlined {
+  z-index: 0 !important;
+}
+
+.form__form {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.form__paper {
+  padding: 16px;
+}
+
+.form__fileInput {
+  width: 97%;
+  margin: 10px 0;
+}
+
+.form__fileInput > input {
+  cursor: pointer;
+}
+
+.form__buttonSubmit {
+  margin-bottom: 10px !important;
+}

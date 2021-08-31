@@ -1,0 +1,10 @@
+.posts__mainContainer {
+  display: "flex";
+  align-items: "center";
+}
+.posts__smMargin {
+  margin: 8px;
+}
+.posts__actionDiv {
+  text-align: "center";
+}
