@@ -19,11 +19,6 @@
 }
 
 @media only screen and (max-width: 790px) {
-  .home__mainContainer {
-    display: flex;
-    flex-direction: column-reverse;
-  }
-
   .home__appBar {
     width: 100% !important;
   }
