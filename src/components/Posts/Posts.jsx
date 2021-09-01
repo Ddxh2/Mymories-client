@@ -8,8 +8,9 @@ import "./Posts.css";
 
 const Posts = ({ setCurrentId }) => {
   const posts = useSelector((state) => state.posts);
+
   return !posts.length ? (
-    <CircularProgress />
+    <CircularProgress size={150} />
   ) : (
     <Grid
       className='posts__mainContainer'

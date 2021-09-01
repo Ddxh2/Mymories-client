@@ -1,12 +1,13 @@
 import React from "react";
 import {
-  BrowserRouter as Router,
+  HashRouter as Router,
   Switch,
   Route,
   Redirect,
 } from "react-router-dom";
 import { useSelector } from "react-redux";
 
+import { Header } from "./components";
 import { Landing, Home } from "./Pages";
 
 import "./App.css";
@@ -16,15 +17,18 @@ const App = () => {
   return (
     <Router>
       <div className='app'>
-        {!loggedIn ? (
+        <Header />
+        {!loggedIn.success ? (
           <Switch>
-            {!loggedIn && <Route path='/' component={Landing}></Route>}
-            <Redirect to='/' />
+            {!loggedIn.success && (
+              <Route path='/login' component={Landing}></Route>
+            )}
+            <Redirect to='/login' />
           </Switch>
         ) : (
           <Switch>
-            <Route path='/' component={Home}></Route>
-            <Redirect to='/' />
+            <Route path='/home' component={Home}></Route>
+            <Redirect to='/home' />
           </Switch>
         )}
       </div>
