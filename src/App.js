@@ -1,22 +1,40 @@
-import React from "react";
+import React, { useEffect } from "react";
 import {
   HashRouter as Router,
   Switch,
   Route,
   Redirect,
 } from "react-router-dom";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 
-import { Header } from "./components";
+import { Header, Welcome, LogOut } from "./components";
 import { Landing, Home } from "./Pages";
+
+import { ACTION_TYPES } from "./constants";
 
 import "./App.css";
 
 const App = () => {
   const loggedIn = useSelector((state) => state.loggedIn);
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    if (!!localStorage.getItem("loggedInUser")) {
+      dispatch({
+        type: ACTION_TYPES.ALREADY_LOGGED_IN,
+        payload: {
+          success: true,
+          username: localStorage.getItem("loggedInUser"),
+          type: null,
+        },
+      });
+    }
+  }, [dispatch]);
   return (
     <Router>
       <div className='app'>
+        {!!loggedIn.success && <Welcome username={loggedIn.username} />}
+        <LogOut />
         <Header />
         {!loggedIn.success ? (
           <Switch>
