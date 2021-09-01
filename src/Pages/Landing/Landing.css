@@ -25,18 +25,35 @@
   color: #666666;
 }
 
-.landingPage__inputRow__cell > label,
-.landingPage__inputRow__cell > input {
+.landingPage__inputRow__cell > div {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.landingPage__inputRow__cell > div > label,
+.landingPage__inputRow__cell > div > input {
   font-size: inherit;
   font-weight: inherit;
   color: inherit;
 }
 
-.landingPage__inputRow__cell > input {
+.landingPage__inputRow__cell > div > input {
   padding: 5px 5px 5px 10px;
   width: 100%;
   border: none;
   border-radius: 10px;
+}
+
+.landingPage__inputRow__cell__invalidInput {
+  border: 2px solid red !important;
+}
+.landingPage__inputRow__cell__invalidText {
+  margin-left: 5px;
+  font-size: 0.8rem;
+  font-weight: bold;
+  color: red;
 }
 
 .landingPage__buttonWrapper {
@@ -56,16 +73,27 @@
   font-weight: bolder;
 }
 
+.landingPage__buttonWrapper > button:not(:disabled):hover {
+  opacity: 0.6;
+  color: black;
+}
+
+.landingPage__buttonWrapper > button:disabled {
+  cursor: default;
+  color: lightgray;
+  opacity: 0.3;
+}
+
 .landingPage__buttonWrapper > .primary {
   background: #007fff;
-  color: #dadada;
+  color: white;
   box-shadow: 0px 0px 10px 1px #007fff;
 }
 
 .landingPage__buttonWrapper > .secondary {
-  background: #8a9a5b;
+  background: #32cd32;
   color: white;
-  box-shadow: 0px 0px 10px 1px #8a9a5b;
+  box-shadow: 0px 0px 10px 1px #32cd32;
 }
 
 @media only screen and (max-width: 600px) {

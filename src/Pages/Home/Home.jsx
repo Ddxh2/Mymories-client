@@ -4,8 +4,7 @@ import { useDispatch } from "react-redux";
 import { getPosts } from "../../actions/posts";
 
 import { Form, Posts } from "../../components";
-import { Container, AppBar, Typography, Grow, Grid } from "@material-ui/core";
-import memories from "../../images/memories.png";
+import { Container, Grow, Grid } from "@material-ui/core";
 
 import "./Home.css";
 
@@ -18,12 +17,6 @@ const Home = () => {
   const [currentId, setCurrentId] = useState(null);
   return (
     <Container className='home' maxWidth='lg'>
-      <AppBar className='home__appBar' position='static' color='inherit'>
-        <Typography className='home__heading' variant='h2' align='center'>
-          Memories
-        </Typography>
-        <img className='home__image' src={memories} alt='memories' />
-      </AppBar>
       <Grow in>
         <Container>
           <Grid
