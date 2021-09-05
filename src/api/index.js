@@ -5,6 +5,7 @@ const postsUrl = `${url}/posts`;
 const usersUrl = `${url}/users`;
 
 export const fetchPosts = () => axios.get(postsUrl);
+export const fetchPostsForMe = (id) => axios.get(`${postsUrl}/${id}`);
 export const createPost = (newPost) => axios.post(postsUrl, newPost);
 export const updatePost = (id, updatedPost) =>
   axios.patch(`${postsUrl}/${id}`, updatedPost);

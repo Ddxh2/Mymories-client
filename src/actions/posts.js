@@ -13,6 +13,15 @@ export const getPosts = () => async (dispatch) => {
   }
 };
 
+export const getPostsForMe = (id) => async (dispatch) => {
+  try {
+    const { data } = await api.fetchPostsForMe(id);
+    dispatch({ type: ACTION_TYPES.FETCH_FOR_ME, payload: data });
+  } catch (error) {
+    console.log(error);
+  }
+};
+
 export const createPost = (post) => async (dispatch) => {
   try {
     const { data } = await api.createPost(post);
