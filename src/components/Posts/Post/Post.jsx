@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import moment from "moment";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 
 import {
   Card,
@@ -23,6 +23,8 @@ import "./Post.css";
 const Post = ({ post, setCurrentId }) => {
   const [modalOpen, setModalOpen] = useState(false);
   const [imageHovered, setImageHovered] = useState(false);
+
+  const id = useSelector((state) => state.loggedIn.id);
 
   const dispatch = useDispatch();
 
@@ -63,24 +65,32 @@ const Post = ({ post, setCurrentId }) => {
             {moment(post.createdAt).fromNow()}
           </Typography>
         </div>
-        <div className='post__overlay2'>
-          <Button
-            style={{ color: "white" }}
-            size='small'
-            onClick={() => setCurrentId(post._id)}
+        <div className='post__overlayButtonContainer'>
+          {post.authorId === id && (
+            <div className='post__overlayButton1'>
+              <Button
+                style={{ color: "white" }}
+                size='small'
+                onClick={() => setCurrentId(post._id)}
+              >
+                <MoreHorizIcon fontSize='medium' />
+              </Button>
+            </div>
+          )}
+          <div
+            className={`post__overlayButton2 ${
+              imageHovered ? "shown" : "hidden"
+            }`}
           >
-            <MoreHorizIcon fontSize='medium' />
-          </Button>
-        </div>
-        <div className={`post__overlay3 ${imageHovered ? "shown" : "hidden"}`}>
-          <Button
-            style={{ color: "white" }}
-            size='small'
-            onClick={toggleModal}
-            onMouseEnter={onMouseEnter}
-          >
-            <AspectRatioIcon fontSize='medium' />
-          </Button>
+            <Button
+              style={{ color: "white" }}
+              size='small'
+              onClick={toggleModal}
+              onMouseEnter={onMouseEnter}
+            >
+              <AspectRatioIcon fontSize='medium' />
+            </Button>
+          </div>
         </div>
         <div className='post__details'>
           <Typography variant='body2' color='textSecondary'>
@@ -114,14 +124,18 @@ const Post = ({ post, setCurrentId }) => {
               {post.likeCount}
             </span>
           </Button>
-          <Button
-            size='small'
-            color='primary'
-            onClick={() => dispatch(deletePost(post._id))}
-          >
-            <DeleteIcon fontSize='small' />
-            <span className='post__cardActions__buttonLabel'>&nbsp;Delete</span>
-          </Button>
+          {post.authorId === id && (
+            <Button
+              size='small'
+              color='primary'
+              onClick={() => dispatch(deletePost(post._id))}
+            >
+              <DeleteIcon fontSize='small' />
+              <span className='post__cardActions__buttonLabel'>
+                &nbsp;Delete
+              </span>
+            </Button>
+          )}
         </CardActions>
       </Card>
     </>

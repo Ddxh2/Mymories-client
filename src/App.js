@@ -23,8 +23,8 @@ const App = () => {
       dispatch({
         type: ACTION_TYPES.ALREADY_LOGGED_IN,
         payload: {
+          ...JSON.parse(localStorage.getItem("loggedInUser")),
           success: true,
-          username: localStorage.getItem("loggedInUser"),
           type: null,
         },
       });

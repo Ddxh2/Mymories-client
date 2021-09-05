@@ -3,6 +3,7 @@ import { ACTION_TYPES } from "../constants/actionTypes";
 const reducer = (posts = [], action) => {
   switch (action.type) {
     case ACTION_TYPES.FETCH_ALL:
+    case ACTION_TYPES.FETCH_FOR_ME:
       return action.payload;
     case ACTION_TYPES.CREATE:
       return [...posts, action.payload];

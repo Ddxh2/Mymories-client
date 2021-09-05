@@ -33,17 +33,21 @@
   left: 20px;
   color: white;
 }
-.post__overlay2 {
+
+.post__overlayButtonContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   position: absolute;
   top: 20px;
   right: 20px;
+}
+
+.post__overlayButton1 {
   color: white;
 }
 
-.post__overlay3 {
-  position: absolute;
-  top: 48px;
-  right: 20px;
+.post__overlayButton2 {
   color: white;
 }
 
