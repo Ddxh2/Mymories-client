@@ -9,12 +9,14 @@ import { createPost, updatePost } from "../../actions/posts";
 import "./Form.css";
 
 const Form = ({ currentId, setCurrentId }) => {
+  const id = useSelector((state) => state.loggedIn.id);
   const [postData, setPostData] = useState({
     creator: "",
     title: "",
     message: "",
     tags: "",
     selectedFile: "",
+    authorId: id,
   });
 
   const dispatch = useDispatch();
@@ -43,6 +45,7 @@ const Form = ({ currentId, setCurrentId }) => {
       selectedFile: "",
       tags: "",
       creator: "",
+      authorId: id,
     });
   };
 
