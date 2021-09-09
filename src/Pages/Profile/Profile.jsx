@@ -5,7 +5,12 @@ import FileBase from "react-file-base64";
 import { getUserProfile } from "../../api";
 import { updateUser } from "../../actions/users";
 
-import { FriendCounter, Avatar, AddFriend } from "../../components";
+import {
+  FriendCounter,
+  Avatar,
+  AddFriend,
+  PostStatistics,
+} from "../../components";
 import PublishIcon from "@material-ui/icons/Publish";
 
 import "./Profile.css";
@@ -83,6 +88,9 @@ const Profile = (props) => {
           onRemoved={() => setFriendshipIdToRemove(null)}
           onAdded={() => setFriendshipToAdd(null)}
         />
+      </div>
+      <div className='profile__section fullWidth'>
+        <PostStatistics userId={user.id} />
       </div>
     </div>
   ) : null;

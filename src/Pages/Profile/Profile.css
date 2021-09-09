@@ -37,3 +37,7 @@
 .profile__avatar__upload {
   display: none;
 }
+
+.fullWidth {
+  width: 100%;
+}
