@@ -49,3 +49,13 @@ export const createUser = (user) => async (dispatch) => {
     console.log(error);
   }
 };
+
+export const updateUser = (user) => async (dispatch) => {
+  try {
+    const { data } = await api.updateUser(user);
+    const payload = { ...data, type: null };
+    dispatch({ type: ACTION_TYPES.UPDATE_USER, payload });
+  } catch (error) {
+    console.log(error);
+  }
+};
