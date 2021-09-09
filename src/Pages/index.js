@@ -1,4 +1,5 @@
 import Home from "./Home/Home";
 import Landing from "./Landing/Landing";
+import Profile from "./Profile/Profile";
 
-export { Home, Landing };
+export { Home, Landing, Profile };

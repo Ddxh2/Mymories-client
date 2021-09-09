@@ -7,15 +7,15 @@ import {
 } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 
-import { Header, Welcome, LogOut } from "./components";
-import { Landing, Home } from "./Pages";
+import { Header, Welcome, LogOut, Avatar } from "./components";
+import { Landing, Home, Profile } from "./Pages";
 
 import { ACTION_TYPES } from "./constants";
 
 import "./App.css";
 
 const App = () => {
-  const loggedIn = useSelector((state) => state.loggedIn);
+  const loggedInUser = useSelector((state) => state.loggedInUser);
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -30,24 +30,35 @@ const App = () => {
       });
     }
   }, [dispatch]);
+
+  useEffect(() => {
+    localStorage.setItem("loggedInUser", JSON.stringify(loggedInUser));
+  }, [loggedInUser]);
+
   return (
     <Router>
       <div className='app'>
-        {!!loggedIn.success && <Welcome username={loggedIn.username} />}
+        {!!loggedInUser.success && <Welcome username={loggedInUser.username} />}
         <LogOut />
         <Header />
-        {!loggedIn.success ? (
+        {!loggedInUser.success ? (
           <Switch>
-            {!loggedIn.success && (
-              <Route path='/login' component={Landing}></Route>
+            {!loggedInUser.success && (
+              <Route path='/login' component={Landing} />
             )}
             <Redirect to='/login' />
           </Switch>
         ) : (
-          <Switch>
-            <Route path='/home' component={Home}></Route>
-            <Redirect to='/home' />
-          </Switch>
+          <>
+            <div className='app__avatar'>
+              <Avatar size='MEDIUM' user={loggedInUser} showBorder={true} />
+            </div>
+            <Switch>
+              <Route path='/home' component={Home} />
+              <Route path='/user/:username' component={Profile} />
+              <Redirect to='/home' />
+            </Switch>
+          </>
         )}
       </div>
     </Router>
