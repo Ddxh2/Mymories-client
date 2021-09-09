@@ -10,7 +10,7 @@ import "./Home.css";
 
 const Home = () => {
   const dispatch = useDispatch();
-  const id = useSelector((state) => state.loggedIn.id);
+  const id = useSelector((state) => state.loggedInUser.id);
 
   useEffect(() => {
     if (!!id) {

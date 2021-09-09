@@ -9,7 +9,7 @@ import { createPost, updatePost } from "../../actions/posts";
 import "./Form.css";
 
 const Form = ({ currentId, setCurrentId }) => {
-  const id = useSelector((state) => state.loggedIn.id);
+  const id = useSelector((state) => state.loggedInUser.id);
   const [postData, setPostData] = useState({
     creator: "",
     title: "",

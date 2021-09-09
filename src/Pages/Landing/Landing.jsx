@@ -11,10 +11,10 @@ import "./Landing.css";
 const Landing = () => {
   const [user, setUser] = useState(null);
   const [waiting, setWaiting] = useState(false);
-  const loggedIn = useSelector((state) => state.loggedIn);
+  const loggedInUser = useSelector((state) => state.loggedInUser);
 
   const invalidField = useMemo(() => {
-    if (loggedIn.success !== false) {
+    if (loggedInUser.success !== false) {
       return {
         username: false,
         password: false,
@@ -22,9 +22,9 @@ const Landing = () => {
         errorMessage: "",
       };
     } else {
-      const invalidUsername = loggedIn.type === ERROR_TYPES.USERNAME;
-      const invalidPassword = loggedIn.type === ERROR_TYPES.PASSWORD;
-      const invaliedCreateUser = loggedIn.type === ERROR_TYPES.CREATE_USER;
+      const invalidUsername = loggedInUser.type === ERROR_TYPES.USERNAME;
+      const invalidPassword = loggedInUser.type === ERROR_TYPES.PASSWORD;
+      const invaliedCreateUser = loggedInUser.type === ERROR_TYPES.CREATE_USER;
       const errorMessage = invalidPassword
         ? "Invalid Password"
         : invalidUsername
@@ -39,7 +39,7 @@ const Landing = () => {
         errorMessage,
       };
     }
-  }, [loggedIn]);
+  }, [loggedInUser]);
 
   const usernameRef = useRef();
 
@@ -50,10 +50,10 @@ const Landing = () => {
   }, [usernameRef]);
 
   useEffect(() => {
-    if (loggedIn.success !== null) {
+    if (loggedInUser.success !== null) {
       setWaiting(false);
     }
-  }, [loggedIn]);
+  }, [loggedInUser]);
 
   const dispatch = useDispatch();
 
