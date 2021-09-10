@@ -8,6 +8,7 @@
   .home__mainContainer {
     display: flex;
     flex-direction: column-reverse;
+    align-items: center;
   }
 
   .MuiGrid-grid-sm-7,

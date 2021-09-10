@@ -18,7 +18,14 @@ const LinkWrapper = ({ link, linkTo, children }) => {
 const BorderWrapper = ({ showBorder, children }) =>
   !!showBorder ? <div className='avatar__border'>{children}</div> : children;
 
-const Avatar = ({ size, user, id, link = true, showBorder = false }) => {
+const Avatar = ({
+  size,
+  user,
+  id,
+  link = true,
+  showBorder = false,
+  className = "",
+}) => {
   const [userState, setUserState] = useState(user);
 
   useEffect(() => {
@@ -36,10 +43,11 @@ const Avatar = ({ size, user, id, link = true, showBorder = false }) => {
   return !!userState ? (
     <LinkWrapper link={link} linkTo={`/user/${userState.username}`}>
       <BorderWrapper showBorder={showBorder}>
-        <div className={`avatar__container ${AVATAR_SIZES[size]}`}>
+        <div className={`avatar__container ${AVATAR_SIZES[size]} ${className}`}>
           <img
             className={`avatar__image ${AVATAR_SIZES[size]}`}
             src={userState.profileImage || "./defaultAvatar.png"}
+            alt={`avatar ${userState.username}`}
           ></img>
         </div>
       </BorderWrapper>

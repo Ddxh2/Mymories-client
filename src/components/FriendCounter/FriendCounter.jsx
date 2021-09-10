@@ -46,14 +46,14 @@ const FriendCounter = ({
       );
       onRemoved();
     }
-  }, [friendshipIdToRemove]);
+  }, [friendshipIdToRemove, onRemoved]);
 
   useEffect(() => {
     if (!!friendshipToAdd) {
       setFriends((prevFriends) => [...prevFriends, friendshipToAdd]);
       onAdded();
     }
-  }, [friendshipToAdd]);
+  }, [friendshipToAdd, onAdded]);
   return (
     <div className='friendCounter'>
       <div className='friendCounter__header'>Friends: {friends.length}</div>

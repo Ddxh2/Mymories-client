@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from "react";
 
+import { CircularProgress } from "@material-ui/core";
+
 import { fetchMyPosts } from "../../api";
 
 import "./PostStatistics.css";
@@ -31,17 +33,19 @@ const PostStatistics = ({ userId }) => {
     }
   }, [posts]);
 
-  return (
-    !!posts && (
-      <div className='postStatistics'>
-        <div className='postStatistics__text'>
-          # Posts: {postStatistics.numPosts}
-        </div>
-        <div className='postStatistics__text'>
-          # Likes: {postStatistics.totalLikes}
-        </div>
+  return !!posts ? (
+    <div className='postStatistics'>
+      <div className='postStatistics__text'>
+        # Posts: {postStatistics.numPosts}
       </div>
-    )
+      <div className='postStatistics__text'>
+        # Likes: {postStatistics.totalLikes}
+      </div>
+    </div>
+  ) : (
+    <div className='postStatistics__loader'>
+      <CircularProgress size={30} />
+    </div>
   );
 };
 
