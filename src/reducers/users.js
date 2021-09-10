@@ -7,6 +7,7 @@ const reducer = (
     username: null,
     id: null,
     profileImage: "",
+    isPrivate: null,
   },
   action
 ) => {
@@ -21,6 +22,7 @@ const reducer = (
             username: action.payload.username,
             id: action.payload.id,
             profileImage: action.payload.profileImage,
+            isPrivate: action.payload.isPrivate,
           })
         );
       }
