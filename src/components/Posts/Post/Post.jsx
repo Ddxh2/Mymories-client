@@ -24,7 +24,7 @@ const Post = ({ post, setCurrentId }) => {
   const [modalOpen, setModalOpen] = useState(false);
   const [imageHovered, setImageHovered] = useState(false);
 
-  const id = useSelector((state) => state.loggedIn.id);
+  const id = useSelector((state) => state.loggedInUser.id);
 
   const dispatch = useDispatch();
 

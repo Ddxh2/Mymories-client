@@ -9,6 +9,13 @@
   z-index: 0 !important;
 }
 
+.header__link {
+  display: flex;
+  justify-content: center;
+  text-decoration: none;
+  width: 100%;
+}
+
 .header__heading {
   color: rgba(0, 183, 255, 1);
 }

@@ -5,3 +5,9 @@
   align-items: center;
   background: transparent;
 }
+
+.app__avatar {
+  position: absolute;
+  top: 2%;
+  left: 2%;
+}

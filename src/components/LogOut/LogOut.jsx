@@ -6,7 +6,7 @@ import { ACTION_TYPES } from "../../constants";
 import "./LogOut.css";
 
 const LogOut = () => {
-  const loggedIn = useSelector((state) => state.loggedIn);
+  const loggedInUser = useSelector((state) => state.loggedInUser);
   const dispatch = useDispatch();
   const onLogOut = () => {
     dispatch({
@@ -14,7 +14,7 @@ const LogOut = () => {
       payload: { success: null, type: null, username: null },
     });
   };
-  return loggedIn.success ? (
+  return loggedInUser.success ? (
     <button className='logOut' onClick={() => onLogOut()}>
       Log Out
     </button>
