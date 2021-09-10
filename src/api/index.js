@@ -27,6 +27,9 @@ export const updateUser = (newUser) =>
 export const getUserProfile = (identifier) =>
   axios.get(`${usersUrl}/${identifier}`);
 
+export const findUsersByUsername = (usernameSearchString) =>
+  axios.get(`${usersUrl}/find/${usernameSearchString}`);
+
 // Friendships
 
 export const getMyFriends = (id) => axios.get(`${friendshipsUrl}/${id}`);
