@@ -39,8 +39,15 @@ const SearchResultsColumn = ({ username }) => {
   return (
     <div className='searchResultsColumn'>
       {searching && <CircularProgress size={60} />}
-      {!!usersSlice &&
-        usersSlice.map((user) => <SearchResultRow key={user.id} user={user} />)}
+      {!!usersSlice ? (
+        !!usersSlice.length ? (
+          usersSlice.map((user) => (
+            <SearchResultRow key={user.id} user={user} />
+          ))
+        ) : (
+          <h4>No Users Found</h4>
+        )
+      ) : null}
       {!!foundUsers && (
         <Pagination
           backDisabled={startIndex === 0}
