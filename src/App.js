@@ -7,8 +7,8 @@ import {
 } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 
-import { Header, Welcome, LogOut, Avatar } from "./components";
-import { Landing, Home, Profile } from "./Pages";
+import { GlobalSticky } from "./components";
+import { Landing, Home, Profile, Search } from "./Pages";
 
 import { ACTION_TYPES } from "./constants";
 
@@ -38,9 +38,7 @@ const App = () => {
   return (
     <Router>
       <div className='app'>
-        {!!loggedInUser.success && <Welcome username={loggedInUser.username} />}
-        <LogOut />
-        <Header />
+        <GlobalSticky />
         {!loggedInUser.success ? (
           <Switch>
             {!loggedInUser.success && (
@@ -49,16 +47,12 @@ const App = () => {
             <Redirect to='/login' />
           </Switch>
         ) : (
-          <>
-            <div className='app__avatar'>
-              <Avatar size='MEDIUM' user={loggedInUser} showBorder={true} />
-            </div>
-            <Switch>
-              <Route path='/home' component={Home} />
-              <Route path='/user/:username' component={Profile} />
-              <Redirect to='/home' />
-            </Switch>
-          </>
+          <Switch>
+            <Route path='/home' component={Home} />
+            <Route path='/user/:username' component={Profile} />
+            <Route path='/search/:username?' component={Search} />
+            <Redirect to='/home' />
+          </Switch>
         )}
       </div>
     </Router>
