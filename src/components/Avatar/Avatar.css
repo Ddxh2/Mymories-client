@@ -35,6 +35,10 @@
   background: grey;
 }
 
+.avatar__container:hover {
+  opacity: 0.6;
+}
+
 .avatar__image {
   max-height: 100%;
   max-width: 100%;

@@ -8,6 +8,10 @@ import FriendCounter from "./FriendCounter/FriendCounter";
 import Avatar from "./Avatar/Avatar";
 import AddFriend from "./AddFriend/AddFriend";
 import PostStatistics from "./PostStatistics/PostStatistics";
+import GlobalSticky from "./GlobalSticky/GlobalSticky";
+import SearchIcon from "./SearchIcon/SearchIcon";
+import SearchBar from "./SearchBar/SearchBar";
+import SearchResultsColumn from "./SearchResultsColumn/SearchResultsColumn";
 
 export {
   Form,
@@ -20,4 +24,8 @@ export {
   Avatar,
   AddFriend,
   PostStatistics,
+  GlobalSticky,
+  SearchIcon,
+  SearchBar,
+  SearchResultsColumn,
 };

@@ -1,0 +1,22 @@
+.searchPage {
+  width: 70%;
+  height: 70%;
+  padding: 10px 20px 20px 20px;
+  background: rgba(238, 238, 238, 0.7);
+  border-radius: 20px;
+  box-shadow: 0px 0px 20px 2px black;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.searchPage > h1 {
+  text-align: center;
+}
+
+@media only screen and (max-width: 520px) {
+  .searchPage > h1 {
+    font-size: 1.5rem;
+  }
+}
