@@ -2,10 +2,10 @@ import * as api from "../api";
 import NodeRSA from "node-rsa";
 
 import { ACTION_TYPES, ERROR_TYPES } from "../constants/";
+ 
+const PUBLIC_KEY = process.env.REACT_APP_PUBLIC_KEY.replace(/\\n/gm, "\n")
 
 export const logIn = (user) => async (dispatch) => {
-  const PUBLIC_KEY = process.env.REACT_APP_PUBLIC_KEY.replace(/\\n/gm, "\n")
-  console.log(PUBLIC_KEY)
   const key = new NodeRSA(PUBLIC_KEY);
   const { password, username } = user;
   const encryptedPassword = key.encrypt(password, "base64");
@@ -31,7 +31,7 @@ export const logIn = (user) => async (dispatch) => {
 export const createUser = (user) => async (dispatch) => {
   try {
     const { password, username } = user;
-    const key = new NodeRSA(process.env.REACT_APP_PUBLIC_KEY);
+    const key = new NodeRSA(PUBLIC_KEY);
     const encryptedPassword = key.encrypt(password, "base64");
     const { data } = await api.createUser({
       username,
