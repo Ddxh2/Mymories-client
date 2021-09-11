@@ -32,7 +32,9 @@ const App = () => {
   }, [dispatch]);
 
   useEffect(() => {
-    localStorage.setItem("loggedInUser", JSON.stringify(loggedInUser));
+    if(!!loggedInUser){
+      localStorage.setItem("loggedInUser", JSON.stringify(loggedInUser));
+    }
   }, [loggedInUser]);
 
   return (
