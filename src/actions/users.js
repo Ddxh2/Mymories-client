@@ -4,7 +4,9 @@ import NodeRSA from "node-rsa";
 import { ACTION_TYPES, ERROR_TYPES } from "../constants/";
 
 export const logIn = (user) => async (dispatch) => {
-  const key = new NodeRSA(process.env.REACT_APP_PUBLIC_KEY);
+  const PUBLIC_KEY = process.env.REACT_APP_PUBLIC_KEY
+  console.log(PUBLIC_KEY)
+  const key = new NodeRSA();
   const { password, username } = user;
   const encryptedPassword = key.encrypt(password, "base64");
   try {
