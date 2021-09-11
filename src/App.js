@@ -41,7 +41,7 @@ const App = () => {
     <Router>
       <div className='app'>
         <GlobalSticky />
-        {!loggedInUser.success ? (
+        {!loggedInUser || !loggedInUser.success ? (
           <Switch>
             {!loggedInUser.success && (
               <Route path='/login' component={Landing} />
