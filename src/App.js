@@ -1,33 +1,56 @@
-import React from "react";
+import React, { useEffect } from "react";
 import {
   HashRouter as Router,
   Switch,
   Route,
   Redirect,
 } from "react-router-dom";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 
-import { Header } from "./components";
-import { Landing, Home } from "./Pages";
+import { GlobalSticky } from "./components";
+import { Landing, Home, Profile, Search } from "./Pages";
+
+import { ACTION_TYPES } from "./constants";
 
 import "./App.css";
 
 const App = () => {
-  const loggedIn = useSelector((state) => state.loggedIn);
+  const loggedInUser = useSelector((state) => state.loggedInUser);
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    if (!!localStorage.getItem("loggedInUser")) {
+      dispatch({
+        type: ACTION_TYPES.ALREADY_LOGGED_IN,
+        payload: {
+          ...JSON.parse(localStorage.getItem("loggedInUser")),
+          success: true,
+          type: null,
+        },
+      });
+    }
+  }, [dispatch]);
+
+  useEffect(() => {
+    localStorage.setItem("loggedInUser", JSON.stringify(loggedInUser));
+  }, [loggedInUser]);
+
   return (
     <Router>
       <div className='app'>
-        <Header />
-        {!loggedIn.success ? (
+        <GlobalSticky />
+        {!loggedInUser.success ? (
           <Switch>
-            {!loggedIn.success && (
-              <Route path='/login' component={Landing}></Route>
+            {!loggedInUser.success && (
+              <Route path='/login' component={Landing} />
             )}
             <Redirect to='/login' />
           </Switch>
         ) : (
           <Switch>
-            <Route path='/home' component={Home}></Route>
+            <Route path='/home' component={Home} />
+            <Route path='/user/:username' component={Profile} />
+            <Route path='/search/:username?' component={Search} />
             <Redirect to='/home' />
           </Switch>
         )}

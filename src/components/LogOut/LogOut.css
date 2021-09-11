@@ -1,0 +1,26 @@
+.logOut {
+  position: absolute;
+  top: 2%;
+  right: 2%;
+  background: lightcoral;
+  padding: 5px 10px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: bold;
+  font-size: 1rem;
+  color: white;
+}
+
+.logOut:hover {
+  opacity: 0.8;
+  color: black;
+}
+
+@media only screen and (max-width: 600px) {
+  .logOut {
+    padding: 3px 6px;
+    border-radius: 3px;
+    font-size: 0.9rem;
+  }
+}

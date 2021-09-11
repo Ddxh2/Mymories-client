@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 
-import { getPosts } from "../../actions/posts";
+import { getPostsForMe } from "../../actions/posts";
 
 import { Form, Posts } from "../../components";
 import { Container, Grow, Grid } from "@material-ui/core";
@@ -10,10 +10,13 @@ import "./Home.css";
 
 const Home = () => {
   const dispatch = useDispatch();
+  const id = useSelector((state) => state.loggedInUser.id);
 
   useEffect(() => {
-    dispatch(getPosts());
-  }, [dispatch]);
+    if (!!id) {
+      dispatch(getPostsForMe(id));
+    }
+  }, [dispatch, id]);
   const [currentId, setCurrentId] = useState(null);
   return (
     <Container className='home' maxWidth='lg'>

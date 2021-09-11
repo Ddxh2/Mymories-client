@@ -1,6 +1,7 @@
 import { combineReducers } from "redux";
 
 import posts from "./posts";
-import loggedIn from "./users";
+import loggedInUser from "./users";
+import friendships from "./friendships";
 
-export default combineReducers({ posts, loggedIn });
+export default combineReducers({ posts, loggedInUser, friendships });

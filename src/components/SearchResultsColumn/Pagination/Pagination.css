@@ -1,0 +1,28 @@
+.pagination {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100px;
+  margin: 10px;
+}
+
+.pagination__button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  font-size: 3rem;
+  color: black;
+}
+
+.pagination__button:hover {
+  color: #444444;
+  background: rgba(0, 0, 0, 0.1);
+}
+
+.pagination__shown {
+  visibility: visible;
+}
+.pagination__hidden {
+  visibility: hidden;
+}

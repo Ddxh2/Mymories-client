@@ -9,7 +9,7 @@ export const logIn = (user) => async (dispatch) => {
   const encryptedPassword = key.encrypt(password, "base64");
   try {
     const { data } = await api.logIn({ username, password: encryptedPassword });
-    const payload = { success: data, type: null };
+    const payload = { ...data, type: null };
     dispatch({ type: ACTION_TYPES.LOG_IN, payload });
   } catch (error) {
     if (!!error.response) {
@@ -35,12 +35,27 @@ export const createUser = (user) => async (dispatch) => {
       username,
       password: encryptedPassword,
     });
-    dispatch({ type: ACTION_TYPES.CREATE_USER, payload: data });
+    const payload = { ...data, type: ACTION_TYPES.CREATE_USER };
+    dispatch({ type: ACTION_TYPES.CREATE_USER, payload });
   } catch (error) {
     if (!!error.response && error.response.status === 403) {
-      const payload = { success: false, type: ERROR_TYPES.CREATE_USER };
+      const payload = {
+        success: false,
+        type: ERROR_TYPES.CREATE_USER,
+        username: null,
+      };
       dispatch({ payload, type: ACTION_TYPES.CREATE_USER });
     }
+    console.log(error);
+  }
+};
+
+export const updateUser = (user) => async (dispatch) => {
+  try {
+    const { data } = await api.updateUser(user);
+    const payload = { ...data, type: null };
+    dispatch({ type: ACTION_TYPES.UPDATE_USER, payload });
+  } catch (error) {
     console.log(error);
   }
 };

@@ -1,0 +1,39 @@
+.welcome__container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: rgba(218, 218, 218, 0.7);
+  border-radius: 20px;
+  box-shadow: 0 0 20px 5px gray;
+  padding: 10px 30px;
+}
+
+.welcome__message {
+  background-color: transparent;
+  font-weight: bold;
+  font-size: 2rem;
+  padding: 10px;
+  color: #072a6c;
+}
+
+.welcome__animate {
+  animation: 1s fadeOut;
+  animation-fill-mode: forwards;
+  animation-delay: 4s;
+}
+
+@keyframes fadeOut {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .welcome__message {
+    font-size: 1.5rem;
+    padding: 7px;
+  }
+}

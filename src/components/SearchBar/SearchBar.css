@@ -1,0 +1,32 @@
+.search__form {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.search__input {
+  margin: 5px 10px 5px 5px;
+  padding: 3px 10px;
+  border-radius: 5px;
+  border: none;
+  box-shadow: 0px 0px 3px 1px black;
+  font-size: 1rem;
+}
+
+.search__submit {
+  cursor: pointer;
+  margin: 5px 5px 5px 10px;
+  padding: 3px 8px;
+  border-radius: 6px;
+  border: none;
+  background: white;
+  font-weight: bold;
+  font-size: 1rem;
+  box-shadow: 0px 0px 3px 1px black;
+}
+
+.search__submit:hover {
+  background: #444444;
+  color: white;
+}

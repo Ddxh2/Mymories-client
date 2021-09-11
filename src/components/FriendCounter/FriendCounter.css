@@ -1,0 +1,28 @@
+.friendCounter {
+  background: transparent;
+  width: 250px;
+  height: fit-content;
+  border: 2px solid rgb(150, 150, 150);
+  border-radius: 5px;
+  overflow: hidden;
+}
+
+.friendCounter__header {
+  display: flex;
+  justify-content: center;
+  padding-bottom: 5px;
+  background: rgb(150, 150, 150);
+  font-weight: bold;
+}
+
+.friendCounter__body {
+  background: rgba(150, 150, 150, 0.5);
+  padding: 5px;
+  display: flex;
+  flex-wrap: wrap;
+  overflow-wrap: anywhere;
+}
+
+.friendCounter__body > div {
+  margin: 3px;
+}

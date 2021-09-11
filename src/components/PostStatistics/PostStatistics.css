@@ -1,0 +1,18 @@
+.postStatistics {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 0px 10px;
+}
+
+.postStatistics__loader {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.postStatistics__text {
+  font-weight: bold;
+  font-size: 1.1rem;
+  color: #3f3f3f;
+}
