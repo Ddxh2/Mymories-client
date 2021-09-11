@@ -7,7 +7,6 @@ const friendshipsUrl = `${url}/friendships`;
 
 // Posts
 
-export const fetchPosts = () => axios.get(postsUrl);
 export const fetchPostsForMe = (id) => axios.get(`${postsUrl}/${id}`);
 export const fetchMyPosts = (id) => axios.get(`${postsUrl}/my/${id}`);
 export const createPost = (newPost) => axios.post(postsUrl, newPost);
