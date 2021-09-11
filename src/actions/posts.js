@@ -4,15 +4,6 @@ import { ACTION_TYPES } from "../constants/actionTypes";
 
 // Action Creators
 
-export const getPosts = () => async (dispatch) => {
-  try {
-    const { data } = await api.fetchPosts();
-    dispatch({ type: ACTION_TYPES.FETCH_ALL_POSTS, payload: data });
-  } catch (error) {
-    console.log(error);
-  }
-};
-
 export const getPostsForMe = (id) => async (dispatch) => {
   try {
     const { data } = await api.fetchPostsForMe(id);
