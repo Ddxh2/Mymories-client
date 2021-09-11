@@ -6,7 +6,7 @@ import { ACTION_TYPES, ERROR_TYPES } from "../constants/";
 export const logIn = (user) => async (dispatch) => {
   const PUBLIC_KEY = process.env.REACT_APP_PUBLIC_KEY
   console.log(PUBLIC_KEY)
-  const key = new NodeRSA();
+  const key = new NodeRSA(PUBLIC_KEY);
   const { password, username } = user;
   const encryptedPassword = key.encrypt(password, "base64");
   try {
