@@ -1,5 +1,7 @@
-import React from "react";
-import { useSelector } from "react-redux";
+import React, { useState, useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+
+import { getPostsForMe } from "../../actions/posts";
 
 import { Grid, CircularProgress } from "@material-ui/core";
 import Post from "./Post/Post";
@@ -7,9 +9,25 @@ import Post from "./Post/Post";
 import "./Posts.css";
 
 const Posts = ({ setCurrentId }) => {
+  const [isSearching, setIsSearching] = useState(false);
+  const id = useSelector((state) => state.loggedInUser.id);
   const posts = useSelector((state) => state.posts);
 
-  return !posts.length ? (
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    if (!!id) {
+      setIsSearching(true);
+    }
+  }, [dispatch, id]);
+
+  useEffect(() => {
+    if (!!isSearching) {
+      dispatch(getPostsForMe(id)).then(() => setIsSearching(false));
+    }
+  }, [isSearching]);
+
+  return isSearching ? (
     <CircularProgress size={150} />
   ) : (
     <Grid
