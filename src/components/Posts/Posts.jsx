@@ -19,13 +19,13 @@ const Posts = ({ setCurrentId }) => {
     if (!!id) {
       setIsSearching(true);
     }
-  }, [dispatch, id]);
+  }, [id]);
 
   useEffect(() => {
     if (!!isSearching) {
       dispatch(getPostsForMe(id)).then(() => setIsSearching(false));
     }
-  }, [isSearching]);
+  }, [isSearching, dispatch, id]);
 
   return isSearching ? (
     <CircularProgress size={150} />
