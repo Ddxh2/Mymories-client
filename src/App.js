@@ -31,10 +31,6 @@ const App = () => {
     }
   }, [dispatch]);
 
-  useEffect(() => {
-    localStorage.setItem("loggedInUser", JSON.stringify(loggedInUser));
-  }, [loggedInUser]);
-
   return (
     <Router>
       <div className='app'>
