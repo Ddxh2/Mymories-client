@@ -28,10 +28,6 @@ const FriendCounter = ({
 
   const onSuccess = (response) => {
     const friendships = response.data;
-    // const friendIds = friendships.map(({ userId1, userId2 }) =>
-    //   userId1 === userId ? userId2 : userId1
-    // );
-    // setFriends(friendIds);
     setFriends(friendships);
   };
 

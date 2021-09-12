@@ -33,12 +33,12 @@ const Avatar = ({
   }, [user]);
 
   useEffect(() => {
-    if (!userState && !!id) {
+    if (!user && !!id) {
       getUserProfile(id)
         .then(({ data }) => setUserState(data))
         .catch((error) => console.log(error));
     }
-  }, [userState, id]);
+  }, [user, id]);
 
   return !!userState ? (
     <LinkWrapper link={link} linkTo={`/user/${userState.username}`}>
