@@ -21,6 +21,7 @@ Additional changes I made to what was provided in the tutorials include:
 - **Only the creator of a post may edit or delete it**
 - **Images may now be viewed more clearly in a popup modal**
 - **Background randomly changes for each session**
+- **Users may only see posts by themselves or their friends**
 
 ## Local Pre-requisites
 
@@ -39,6 +40,7 @@ Additional changes I made to what was provided in the tutorials include:
 Below are a list of changes or additions that I would have liked to make but didn't get around to.
 
 - Better defined sense of style for the general UI of the application
+- Implement friend requests so that friendships require two-sided agreement
 - Unit tests
 - Limit the number of times a user may like a specific post
 - Add features to user profiles such as history of posts or bio section
